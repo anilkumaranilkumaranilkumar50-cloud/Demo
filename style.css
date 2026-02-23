@@ -1,0 +1,140 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, #fef3e8, #e0f2fe);
+  color: #1e293b;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#particles-js {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.35;
+}
+
+.music-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 999;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(30,58,138,0.75);
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
+}
+
+.music-btn.active { background: rgba(30,58,138,0.95); transform: scale(1.1); }
+
+.header {
+  background: linear-gradient(90deg, #1e40af, #60a5fa);
+  color: white;
+  text-align: center;
+  padding: 5rem 1rem 3.5rem;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.float-rise { animation: floatRise 2.2s ease-out; }
+.glow-pulse { animation: glowPulse 4s infinite alternate; }
+.bounce-in { animation: bounceIn 1.4s 0.4s both; }
+
+.navbar {
+  background: #1e293b;
+  padding: 1.3rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.navbar a {
+  color: #e0f2fe;
+  margin: 0 1.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s;
+}
+
+.navbar a:hover { color: #fbbf24; transform: translateY(-4px) scale(1.12); }
+
+.hero {
+  padding: 7rem 2rem 5rem;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?w=1600') center/cover;
+  position: relative;
+}
+
+.hero-content {
+  background: rgba(0,0,0,0.58);
+  padding: 3.5rem 2rem;
+  border-radius: 20px;
+  max-width: 820px;
+  margin: 0 auto;
+  color: white;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2.6rem;
+  margin-top: 1.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.4s;
+}
+
+.btn-glow { background: #f97316; color: white; box-shadow: 0 0 24px #f97316aa; }
+.btn-glow:hover { transform: scale(1.12); box-shadow: 0 0 40px #f97316cc; }
+
+.menu-section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.6rem;
+  margin-top: 3rem;
+}
+
+.menu-item {
+  background: white;
+  padding: 1.6rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: all 0.45s cubic-bezier(0.34,1.56,0.64,1);
+  opacity: 0;
+}
+
+.menu-item:hover {
+  transform: translateY(-14px) scale(1.06);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.menu-item span { float: right; color: #ea580c; font-weight: bold; }
+
+/* Animations */
+@keyframes floatRise  { 0% { opacity:0; transform:translateY(80px); } 100% { opacity:1; transform:translateY(0); } }
+@keyframes glowPulse  { 0% { text-shadow:0 0 10px #fff8; } 100% { text-shadow:0 0 30px #fff, 0 0 50px #60a5fa; } }
+@keyframes bounceIn   { 0%   { opacity:0; transform:scale(0.6); } 60%  { opacity:1; transform:scale(1.15); } 100% { transform:scale(1); } }
+@keyframes slide-from-top { from { transform:translateY(-100%); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes fade-zoom  { from { opacity:0; transform:scale(0.92); } to { opacity:1; transform:scale(1); } }
+@keyframes slide-up   { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:none; } }
+
+.fade-in     { animation: fadeIn 1.2s forwards; }
+.slide-up    { animation: slide-up 1s forwards; }
+.slide-from-top { animation: slide-from-top 0.9s forwards; }
+.pulse-scale { animation: pulseScale 2.2s infinite; }
+.stagger-1   { animation: fadeInUp 0.8s 0.1s forwards; }
+.stagger-2   { animation: fadeInUp 0.8s 0.2s forwards; }
+/* ... continue stagger-3 to stagger-17 with 0.3s, 0.4s, ... up to \~1.7s delay */
+.stagger-17  { animation: fadeInUp 0.8s 1.7s forwards; }
+
+@keyframes fadeIn    { to { opacity:1; } }
+@keyframes fadeInUp  { from { opacity:0; transform:translateY(35px); } to { opacity:1; transform:none; } }
+@keyframes pulseScale { 0%,100% { transform:scale(1); } 50% { transform:scale(1.07); } }
